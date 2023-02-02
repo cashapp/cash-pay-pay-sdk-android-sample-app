@@ -12,7 +12,7 @@ subprojects { subproject ->
     kotlin {
       target("src/**/*.kt")
       // ktlint doesn't honour .editorconfig yet: https://github.com/diffplug/spotless/issues/142
-      ktlint('0.48.0').editorConfigOverride([
+      ktlint('0.48.2').editorConfigOverride([
           'insert_final_newline': 'true',
           'end_of_line': 'lf',
           'charset': 'utf-8',
