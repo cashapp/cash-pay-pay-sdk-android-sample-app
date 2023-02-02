@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:layout_marginTop="16dp"
+      android:layout_marginHorizontal="28dp"
+      android:gravity="center_horizontal"
+      >
+  <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="375dp"
+      android:src="@drawable/cup_coffee"
+      android:importantForAccessibility="no"
+      />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TitleText4"
+        android:layout_marginTop="28dp"
+      android:text="@string/coffee_title"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/SubtitleText1"
+        android:text="@string/coffee_price"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/BodyText1"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:text="@string/coffee_description"/>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+      android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/addToCartButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="@string/add_to_cart"
+        style="@style/ButtonStyle"
+        />
+
+
+
+  </LinearLayout>
+
+</LinearLayout>

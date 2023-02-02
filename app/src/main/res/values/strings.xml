@@ -1,3 +1,7 @@
 <resources>
   <string name="app_name">Pay Kit Sample App</string>
+  <string name="add_to_cart">Add to Cart</string>
+  <string name="coffee_description">16 oz serving of iced rishi jasmine green tea this tea comes unsweetened but we can sweeten it for you at pick-up!</string>
+  <string name="coffee_title">Small Coffee</string>
+  <string name="coffee_price">$7.00</string>
 </resources>
