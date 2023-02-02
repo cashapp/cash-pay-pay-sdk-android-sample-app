@@ -1,0 +1,19 @@
+package app.cash.paykit.sample.ui
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import app.cash.paykit.sample.R
+import app.cash.paykit.sample.ui.ui.main.MainFragment
+
+class MainActivity : AppCompatActivity() {
+
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+    if (savedInstanceState == null) {
+      supportFragmentManager.beginTransaction()
+        .replace(R.id.container, MainFragment.newInstance())
+        .commitNow()
+    }
+  }
+}
