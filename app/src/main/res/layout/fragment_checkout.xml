@@ -291,6 +291,7 @@
           />
 
       <app.cash.paykit.core.ui.CashPayKitLightButton
+          android:id="@+id/payKitButton"
           android:layout_width="match_parent"
           android:layout_height="52dp"
           android:layout_marginHorizontal="16dp"

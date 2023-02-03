@@ -19,4 +19,8 @@
   <string name="name_hint">Customer Name</string>
   <string name="email_hint">Customer Email</string>
   <string name="phone_hint">Phone Number</string>
+
+  <string name="state_approved">Payment Approved!</string>
+  <string name="state_declined">Payment Declined!</string>
+  <string name="state_error">Exception occurred! Check logcat.</string>
 </resources>

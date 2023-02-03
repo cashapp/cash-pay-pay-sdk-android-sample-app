@@ -15,12 +15,25 @@
     <activity
         android:name=".ui.MainActivity"
         android:screenOrientation="portrait"
+        android:launchMode="singleInstance"
         android:exported="true"
         tools:ignore="LockedOrientationActivity">
+
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
-
         <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <!-- Register the Cash PayKit redirect URI or URL. Change this accordingly in your app. -->
+        <data
+            android:scheme="cashpaykitsample"
+            android:host="checkout" />
       </intent-filter>
     </activity>
   </application>
