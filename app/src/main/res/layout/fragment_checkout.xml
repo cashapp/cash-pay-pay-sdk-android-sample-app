@@ -1,7 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/coffeeThumbnail"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/coffee_thumb"
+        app:layout_constraintStart_toStartOf="@+id/orderSummary"
+        app:layout_constraintTop_toBottomOf="@+id/orderSummary"
+        />
+
+    <TextView
+        android:id="@+id/orderSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/order_summary_title"
+        android:textAllCaps="true"
+        android:textColor="#8C000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/TitleText4"
+        />
+
+    <TextView
+        android:id="@+id/coffeeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/coffee_label"
+        app:layout_constraintBottom_toTopOf="@+id/sizeLabel"
+        app:layout_constraintStart_toEndOf="@+id/coffeeThumbnail"
+        app:layout_constraintTop_toTopOf="@+id/coffeeThumbnail"
+        app:layout_constraintVertical_chainStyle="packed"
+        style="@style/SubtitleText2"
+        />
+
+    <TextView
+        android:id="@+id/sizeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="@string/small_8oz_label"
+        app:layout_constraintBottom_toBottomOf="@+id/coffeeThumbnail"
+        app:layout_constraintStart_toEndOf="@+id/coffeeThumbnail"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeLabel"
+        style="@style/CaptionText"
+        />
+
+
+    <TextView
+        android:id="@+id/priceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/coffee_price"
+        app:layout_constraintBottom_toBottomOf="@+id/sizeLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/coffeeLabel"
+        style="@style/BodyText2"
+        />
+
+
+    <TextView
+        android:id="@+id/subtotalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="19dp"
+        android:text="@string/subtotal_label"
+        app:layout_constraintStart_toStartOf="@+id/coffeeThumbnail"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeThumbnail"
+        style="@style/BodyText3"
+        />
+
+    <TextView
+        android:id="@+id/subtotalPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/coffee_price"
+        app:layout_constraintBottom_toBottomOf="@+id/subtotalLabel"
+        app:layout_constraintEnd_toEndOf="@+id/priceLabel"
+        app:layout_constraintTop_toTopOf="@+id/subtotalLabel"
+        style="@style/BodyText4"
+        />
+
+    <TextView
+        android:id="@+id/taxesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/taxes_label"
+        app:layout_constraintStart_toStartOf="@+id/subtotalLabel"
+        app:layout_constraintTop_toBottomOf="@+id/subtotalLabel"
+        style="@style/BodyText3"
+        />
+
+    <TextView
+        android:id="@+id/taxesPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/taxes_price"
+        app:layout_constraintBottom_toBottomOf="@+id/taxesLabel"
+        app:layout_constraintEnd_toEndOf="@+id/subtotalPriceLabel"
+        app:layout_constraintTop_toTopOf="@+id/taxesLabel"
+        style="@style/BodyText4"
+        />
+
+
+    <TextView
+        android:id="@+id/totalLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/total_label"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/taxesLabel"
+        app:layout_constraintTop_toBottomOf="@+id/taxesLabel"
+        style="@style/SubtitleText2"
+        />
+
+    <TextView
+        android:id="@+id/totalPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="@string/total_price"
+        app:layout_constraintBottom_toBottomOf="@+id/totalLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/totalLabel"
+        style="@style/BodyText2"
+        />
+
+    <!-- Contact details -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/contactDetailsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/subsection_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalLabel"
+        >
+
+      <TextView
+          android:id="@+id/contactTitle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="16dp"
+          android:layout_marginTop="12dp"
+          android:text="@string/contact_title"
+          android:textAllCaps="true"
+          android:textColor="#8C000000"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          style="@style/TitleText4"
+          />
+
+
+      <!-- Customer Email -->
+      <TextView
+          android:id="@+id/privacyLabel"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginVertical="12dp"
+          android:text="@string/contact_terms"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="@+id/phoneTIL"
+          app:layout_constraintStart_toStartOf="@+id/phoneTIL"
+          app:layout_constraintTop_toBottomOf="@+id/phoneTIL"
+          style="@style/CaptionText"
+          />
+
+
+      <!-- Customer Name -->
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/nameTIL"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="16dp"
+          android:layout_marginTop="8dp"
+          android:hint="@string/name_hint"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/emailTIL"
+          >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            />
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <!-- Customer Phone Number -->
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/phoneTIL"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="16dp"
+          android:layout_marginTop="8dp"
+          android:hint="@string/phone_hint"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/nameTIL"
+          >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone"
+            />
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/emailTIL"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="16dp"
+          android:layout_marginTop="12dp"
+          android:hint="@string/email_hint"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/contactTitle"
+          >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            />
+
+      </com.google.android.material.textfield.TextInputLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- Payment details -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/paymentDetailsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/subsection_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactDetailsContainer"
+        >
+
+      <TextView
+          android:id="@+id/paymentTitle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginHorizontal="16dp"
+          android:layout_marginTop="12dp"
+          android:text="@string/payment_title"
+          android:textAllCaps="true"
+          android:textColor="#8C000000"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          style="@style/TitleText4"
+          />
+
+      <TextView
+          android:id="@+id/encryptionLabel"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="2dp"
+          android:text="@string/encryption_notice"
+          app:layout_constraintStart_toStartOf="@+id/paymentTitle"
+          app:layout_constraintTop_toBottomOf="@+id/paymentTitle"
+          style="@style/BodyText3"
+          />
+
+      <app.cash.paykit.core.ui.CashPayKitLightButton
+          android:layout_width="match_parent"
+          android:layout_height="52dp"
+          android:layout_marginHorizontal="16dp"
+          android:layout_marginVertical="16dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/encryptionLabel"
+          />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

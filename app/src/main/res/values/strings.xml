@@ -4,4 +4,19 @@
   <string name="coffee_description">16 oz serving of iced rishi jasmine green tea this tea comes unsweetened but we can sweeten it for you at pick-up!</string>
   <string name="coffee_title">Small Coffee</string>
   <string name="coffee_price">$7.00</string>
+  <string name="order_summary_title">order summary</string>
+  <string name="coffee_label">Coffee</string>
+  <string name="small_8oz_label">Small (8oz)</string>
+  <string name="subtotal_label">Subtotal</string>
+  <string name="taxes_label">Taxes</string>
+  <string name="taxes_price">$1.25</string>
+  <string name="total_label">Total</string>
+  <string name="total_price">$8.25</string>
+  <string name="contact_title">contact</string>
+  <string name="contact_terms">By providing your phone number, you agree to receive text messages related to your order. Standard message rates may apply. Reply STOP to opt out of receiving any future text messages related to your order.</string>
+  <string name="payment_title">payment</string>
+  <string name="encryption_notice">All transactions are secure and encrypted.</string>
+  <string name="name_hint">Customer Name</string>
+  <string name="email_hint">Customer Email</string>
+  <string name="phone_hint">Phone Number</string>
 </resources>

@@ -23,8 +23,8 @@
 
   <style name="TitleText4" parent="TextAppearance.MaterialComponents.Headline4">
       <item name="android:textSize">18sp</item>
-    <item name="android:fontFamily">sans-serif-medium</item>
-    <item name="fontFamily">sans-serif-medium</item>
+    <item name="android:fontFamily">sans-serif-condensed-medium</item>
+    <item name="fontFamily">sans-serif-condensed-medium</item>
     <item name="android:textColor">@color/black</item>
   </style>
 
@@ -47,6 +47,27 @@
     <item name="android:fontFamily">sans-serif</item>
     <item name="fontFamily">sans-serif</item>
     <item name="android:textColor">#999999</item>
+  </style>
+
+  <style name="BodyText2" parent="TextAppearance.MaterialComponents.Body2">
+    <item name="android:textSize">14sp</item>
+    <item name="android:fontFamily">sans-serif-black</item>
+    <item name="fontFamily">sans-serif-black</item>
+    <item name="android:textColor">#333333</item>
+  </style>
+
+  <style name="BodyText3" parent="TextAppearance.MaterialComponents.Body2">
+    <item name="android:textSize">12sp</item>
+    <item name="android:fontFamily">sans-serif-medium</item>
+    <item name="fontFamily">sans-serif-medium</item>
+    <item name="android:textColor">#666666</item>
+  </style>
+
+  <style name="BodyText4" parent="TextAppearance.MaterialComponents.Body2">
+    <item name="android:textSize">12sp</item>
+    <item name="android:fontFamily">sans-serif-medium</item>
+    <item name="fontFamily">sans-serif-medium</item>
+    <item name="android:textColor">#333333</item>
   </style>
 
   <style name="CaptionText" parent="TextAppearance.MaterialComponents.Caption">
