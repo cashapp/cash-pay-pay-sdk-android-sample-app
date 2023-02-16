@@ -1,3 +1,5 @@
+[![build](https://github.com/cashapp/android-cash-paykit-sdk/actions/workflows/build.yaml/badge.svg)](https://github.com/cashapp/android-cash-paykit-sdk/actions/workflows/build.yaml) 
+
 # Cash App Pay Kit SDK Sample app for Android.
 
 This repository contains a Sample App that showcases an integration with Cash App Pay SDK for Android.
