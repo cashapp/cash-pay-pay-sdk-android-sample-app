@@ -1,4 +1,5 @@
-[![build](https://github.com/cashapp/android-cash-paykit-sdk/actions/workflows/build.yaml/badge.svg)](https://github.com/cashapp/android-cash-paykit-sdk/actions/workflows/build.yaml) 
+[![build](https://github.com/cashapp/cash-pay-kit-sdk-android-sample-app/actions/workflows/build.yml/badge.svg)](https://github.com/cashapp/cash-pay-kit-sdk-android-sample-app/actions/workflows/build.yml) ![GitHub](https://img.shields.io/github/license/cashapp/cash-pay-kit-sdk-android-sample-app?style=plastic)
+
 
 # Cash App Pay Kit SDK Sample app for Android.
 
