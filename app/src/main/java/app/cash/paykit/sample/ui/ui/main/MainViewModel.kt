@@ -39,8 +39,8 @@ enum class Screens {
 }
 
 /* Change these IDs and redirect URI accordingly for your own app. */
-private const val sandboxClientID = "CAS-CI_PAYKIT_MOBILE_DEMO"
-const val sandboxBrandID = "BRAND_9t4pg7c16v4lukc98bm9jxyse"
+private const val sandboxClientID = "CAS-CI_PAYKIT_ANDROID_DEMO"
+const val sandboxBrandID = "BRAND_9iw6g8mjkh75q5p5eoil6e0jf"
 
 const val redirectURI = "cashpaykitsample://checkout"
 
