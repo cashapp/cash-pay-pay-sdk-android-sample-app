@@ -34,7 +34,7 @@ import app.cash.paykit.core.PayKitState.Authorizing
 import app.cash.paykit.core.PayKitState.CreatingCustomerRequest
 import app.cash.paykit.core.PayKitState.Declined
 import app.cash.paykit.core.PayKitState.NotStarted
-import app.cash.paykit.core.PayKitState.PayKitException
+import app.cash.paykit.core.PayKitState.PayKitExceptionState
 import app.cash.paykit.core.PayKitState.PollingTransactionStatus
 import app.cash.paykit.core.PayKitState.ReadyToAuthorize
 import app.cash.paykit.core.PayKitState.RetrievingExistingCustomerRequest
@@ -110,7 +110,7 @@ class CheckoutFragment : Fragment() {
               binding.payKitButton.isEnabled = false
             }
 
-            is PayKitException -> {
+            is PayKitExceptionState -> {
               showToast(R.string.state_error)
               Log.e("Sample", "Exception occurred: ${newState.exception}")
             }
