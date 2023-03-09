@@ -29,18 +29,18 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import app.cash.paykit.core.PayKitState.Approved
-import app.cash.paykit.core.PayKitState.Authorizing
-import app.cash.paykit.core.PayKitState.CreatingCustomerRequest
-import app.cash.paykit.core.PayKitState.Declined
-import app.cash.paykit.core.PayKitState.NotStarted
-import app.cash.paykit.core.PayKitState.PayKitExceptionState
-import app.cash.paykit.core.PayKitState.PollingTransactionStatus
-import app.cash.paykit.core.PayKitState.ReadyToAuthorize
-import app.cash.paykit.core.PayKitState.RetrievingExistingCustomerRequest
-import app.cash.paykit.core.PayKitState.UpdatingCustomerRequest
-import app.cash.paykit.core.models.sdk.PayKitCurrency.USD
-import app.cash.paykit.core.models.sdk.PayKitPaymentAction.OneTimeAction
+import app.cash.paykit.core.CashAppPayState.Approved
+import app.cash.paykit.core.CashAppPayState.Authorizing
+import app.cash.paykit.core.CashAppPayState.CashAppPayExceptionState
+import app.cash.paykit.core.CashAppPayState.CreatingCustomerRequest
+import app.cash.paykit.core.CashAppPayState.Declined
+import app.cash.paykit.core.CashAppPayState.NotStarted
+import app.cash.paykit.core.CashAppPayState.PollingTransactionStatus
+import app.cash.paykit.core.CashAppPayState.ReadyToAuthorize
+import app.cash.paykit.core.CashAppPayState.RetrievingExistingCustomerRequest
+import app.cash.paykit.core.CashAppPayState.UpdatingCustomerRequest
+import app.cash.paykit.core.models.sdk.CashAppPayCurrency.USD
+import app.cash.paykit.core.models.sdk.CashAppPayPaymentAction.OneTimeAction
 import app.cash.paykit.sample.R
 import app.cash.paykit.sample.databinding.FragmentCheckoutBinding
 import kotlinx.coroutines.launch
@@ -80,7 +80,7 @@ class CheckoutFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
     handlePayKitStateChanges()
     binding.payKitButton.setOnClickListener {
-      viewModel.authorizeCustomerRequest(requireContext())
+      viewModel.authorizeCustomerRequest()
     }
   }
 
@@ -110,7 +110,7 @@ class CheckoutFragment : Fragment() {
               binding.payKitButton.isEnabled = false
             }
 
-            is PayKitExceptionState -> {
+            is CashAppPayExceptionState -> {
               showToast(R.string.state_error)
               Log.e("Sample", "Exception occurred: ${newState.exception}")
             }
