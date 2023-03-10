@@ -17,15 +17,13 @@
 
 package app.cash.paykit.sample.ui.ui.main
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import app.cash.paykit.core.CashAppPayKit
-import app.cash.paykit.core.CashAppPayKitFactory
-import app.cash.paykit.core.CashAppPayKitListener
-import app.cash.paykit.core.PayKitState
-import app.cash.paykit.core.PayKitState.ReadyToAuthorize
-import app.cash.paykit.core.models.sdk.PayKitPaymentAction
+import app.cash.paykit.core.CashAppPay
+import app.cash.paykit.core.CashAppPayFactory
+import app.cash.paykit.core.CashAppPayListener
+import app.cash.paykit.core.CashAppPayState
+import app.cash.paykit.core.models.sdk.CashAppPayPaymentAction
 import app.cash.paykit.sample.ui.ui.main.Screens.CHECKOUT
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -44,23 +42,23 @@ const val sandboxBrandID = "BRAND_9iw6g8mjkh75q5p5eoil6e0jf"
 
 const val redirectURI = "cashpaykitsample://checkout"
 
-class MainViewModel : ViewModel(), CashAppPayKitListener {
+class MainViewModel : ViewModel(), CashAppPayListener {
 
   // Used for simple navigation.
   private val _currentScreen = MutableStateFlow(Screens.ADD_TO_CART)
   val currentScreen: StateFlow<Screens> = _currentScreen
 
   // Cash PayKit State.
-  private val _payKitState = MutableStateFlow<PayKitState>(PayKitState.NotStarted)
-  val payKitState: StateFlow<PayKitState> = _payKitState.asStateFlow()
+  private val _payKitState = MutableStateFlow<CashAppPayState>(CashAppPayState.NotStarted)
+  val payKitState: StateFlow<CashAppPayState> = _payKitState.asStateFlow()
 
-  private lateinit var payKitSdk: CashAppPayKit
+  private lateinit var payKitSdk: CashAppPay
   var currentRequestId: String? = null
     private set
 
-  override fun payKitStateDidChange(newState: PayKitState) {
+  override fun cashAppPayStateDidChange(newState: CashAppPayState) {
     // Store the `requestId`.
-    if (newState is ReadyToAuthorize) {
+    if (newState is CashAppPayState.ReadyToAuthorize) {
       currentRequestId = newState.responseData.id
     }
 
@@ -73,17 +71,17 @@ class MainViewModel : ViewModel(), CashAppPayKitListener {
   }
 
   fun initializeSDK() {
-    payKitSdk = CashAppPayKitFactory.createSandbox(sandboxClientID)
+    payKitSdk = CashAppPayFactory.createSandbox(sandboxClientID)
     payKitSdk.registerForStateUpdates(this)
   }
 
-  fun createOneTimePayment(paymentAction: PayKitPaymentAction) {
+  fun createOneTimePayment(paymentAction: CashAppPayPaymentAction) {
     viewModelScope.launch(Dispatchers.IO) {
       payKitSdk.createCustomerRequest(paymentAction)
     }
   }
 
-  fun authorizeCustomerRequest(context: Context) {
-    payKitSdk.authorizeCustomerRequest(context)
+  fun authorizeCustomerRequest() {
+    payKitSdk.authorizeCustomerRequest()
   }
 }
