@@ -77,7 +77,7 @@ class MainViewModel : ViewModel(), CashAppPayListener {
 
   fun createOneTimePayment(paymentAction: CashAppPayPaymentAction) {
     viewModelScope.launch(Dispatchers.IO) {
-      payKitSdk.createCustomerRequest(paymentAction)
+      payKitSdk.createCustomerRequest(paymentAction, redirectURI)
     }
   }
 
