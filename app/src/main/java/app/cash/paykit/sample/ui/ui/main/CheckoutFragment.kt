@@ -26,9 +26,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import app.cash.paykit.core.CashAppPayState.Approved
 import app.cash.paykit.core.CashAppPayState.Authorizing
 import app.cash.paykit.core.CashAppPayState.CashAppPayExceptionState
@@ -43,6 +41,7 @@ import app.cash.paykit.core.models.sdk.CashAppPayCurrency.USD
 import app.cash.paykit.core.models.sdk.CashAppPayPaymentAction.OneTimeAction
 import app.cash.paykit.sample.R
 import app.cash.paykit.sample.databinding.FragmentCheckoutBinding
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class CheckoutFragment : Fragment() {
@@ -86,7 +85,6 @@ class CheckoutFragment : Fragment() {
 
   private fun handlePayKitStateChanges() {
     lifecycleScope.launch {
-      repeatOnLifecycle(Lifecycle.State.STARTED) {
         viewModel.payKitState.collect { newState ->
           when (newState) {
             is Approved -> {
@@ -131,7 +129,6 @@ class CheckoutFragment : Fragment() {
               // Used only when retrieving existing customer request. Corner case (eg.: app killed)
             }
           }
-        }
       }
     }
   }

@@ -20,9 +20,7 @@ package app.cash.paykit.sample.ui
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
 import app.cash.paykit.sample.R
 import app.cash.paykit.sample.ui.ui.main.AddToCartFragment
 import app.cash.paykit.sample.ui.ui.main.CheckoutFragment
@@ -30,6 +28,7 @@ import app.cash.paykit.sample.ui.ui.main.MainViewModel
 import app.cash.paykit.sample.ui.ui.main.Screens
 import app.cash.paykit.sample.ui.ui.main.Screens.ADD_TO_CART
 import app.cash.paykit.sample.ui.ui.main.Screens.CHECKOUT
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -42,11 +41,8 @@ class MainActivity : AppCompatActivity() {
 
     // Start a coroutine in the lifecycle scope
     lifecycleScope.launch {
-      repeatOnLifecycle(Lifecycle.State.STARTED) {
-        viewModel.currentScreen.collect { currentScreen ->
-          navigateToScreen(currentScreen)
-        }
-      }
+      viewModel.currentScreen.collect { currentScreen ->
+        navigateToScreen(currentScreen) }
     }
   }
 
