@@ -17,6 +17,7 @@
 
 package app.cash.paykit.sample.ui.ui.main
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.cash.paykit.core.CashAppPay
@@ -77,6 +78,7 @@ class MainViewModel : ViewModel(), CashAppPayListener {
 
   fun createOneTimePayment(paymentAction: CashAppPayPaymentAction) {
     viewModelScope.launch(Dispatchers.IO) {
+      Log.e("Sample", "paymentAction payload:"+paymentAction.toString())
       payKitSdk.createCustomerRequest(paymentAction, redirectURI)
     }
   }

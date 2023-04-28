@@ -97,6 +97,8 @@ class CheckoutFragment : Fragment() {
             }
 
             CreatingCustomerRequest -> {
+              Log.e("Sample", "Creating Customer Request")
+              binding.payKitButton.isEnabled = false
               // Use this state to display loading status if desired.
             }
 
@@ -105,18 +107,20 @@ class CheckoutFragment : Fragment() {
             }
 
             NotStarted -> {
+              Log.e("Sample", "Not Started")
               binding.payKitButton.isEnabled = false
             }
 
             is CashAppPayExceptionState -> {
-              showToast(R.string.state_error)
               Log.e("Sample", "Exception occurred: ${newState.exception}")
+              showToast(R.string.state_error)
             }
             PollingTransactionStatus -> {
               // Use this state to display loading status if desired.
             }
 
             is ReadyToAuthorize -> {
+              Log.e("Sample", "Ready to Authorize")
               binding.payKitButton.isEnabled = true
             }
 
