@@ -95,6 +95,7 @@ class CheckoutFragment : Fragment() {
             }
 
             Authorizing -> {
+              binding.payKitButton.isEnabled = false
               // Use this state to display loading status if desired.
             }
 
