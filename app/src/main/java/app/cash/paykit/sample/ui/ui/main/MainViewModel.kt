@@ -17,10 +17,13 @@
 
 package app.cash.paykit.sample.ui.ui.main
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.startup.AppInitializer
 import app.cash.paykit.core.CashAppPay
 import app.cash.paykit.core.CashAppPayFactory
+import app.cash.paykit.core.CashAppPayInitializer
 import app.cash.paykit.core.CashAppPayListener
 import app.cash.paykit.core.CashAppPayState
 import app.cash.paykit.core.models.sdk.CashAppPayPaymentAction
@@ -70,7 +73,9 @@ class MainViewModel : ViewModel(), CashAppPayListener {
     _currentScreen.value = CHECKOUT
   }
 
-  fun initializeSDK() {
+  fun initializeSDK(context: Context) {
+    AppInitializer.getInstance(context)
+      .initializeComponent(CashAppPayInitializer::class.java)
     payKitSdk = CashAppPayFactory.createSandbox(sandboxClientID)
     payKitSdk.registerForStateUpdates(this)
   }

@@ -71,7 +71,7 @@ class CheckoutFragment : Fragment() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    viewModel.initializeSDK()
+    viewModel.initializeSDK(requireContext())
     val oneTimePayment = OneTimeAction(USD, 825, sandboxBrandID)
     viewModel.createOneTimePayment(oneTimePayment)
   }
