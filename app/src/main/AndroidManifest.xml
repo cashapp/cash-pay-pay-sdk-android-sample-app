@@ -11,6 +11,17 @@
       android:supportsRtl="true"
       android:theme="@style/Theme.PayKitSampleApp"
       tools:targetApi="31">
+
+    <provider
+        android:name="androidx.startup.InitializationProvider"
+        android:authorities="${applicationId}.androidx-startup"
+        android:exported="false"
+        tools:node="merge">
+      <meta-data android:name="app.cash.paykit.core.CashAppPayInitializer"
+          android:value="androidx.startup"
+          tools:node="remove" />
+    </provider>
+
     <activity
         android:name=".ui.MainActivity"
         android:screenOrientation="portrait"
