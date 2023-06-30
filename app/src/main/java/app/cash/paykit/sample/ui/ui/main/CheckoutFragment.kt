@@ -37,11 +37,12 @@ import app.cash.paykit.core.CashAppPayState.Declined
 import app.cash.paykit.core.CashAppPayState.NotStarted
 import app.cash.paykit.core.CashAppPayState.PollingTransactionStatus
 import app.cash.paykit.core.CashAppPayState.ReadyToAuthorize
+import app.cash.paykit.core.CashAppPayState.Refreshing
 import app.cash.paykit.core.CashAppPayState.RetrievingExistingCustomerRequest
 import app.cash.paykit.core.CashAppPayState.UpdatingCustomerRequest
 import app.cash.paykit.core.models.sdk.CashAppPayCurrency.USD
 import app.cash.paykit.core.models.sdk.CashAppPayPaymentAction.OneTimeAction
-import app.cash.paykit.sample.R
+import app.cash.paykit.sample.R.string
 import app.cash.paykit.sample.databinding.FragmentCheckoutBinding
 import kotlinx.coroutines.launch
 
@@ -91,7 +92,7 @@ class CheckoutFragment : Fragment() {
           when (newState) {
             is Approved -> {
               // Use `newState.responseData` to retrieve the information necessary to send to your own backend.
-              showToast(R.string.state_approved)
+              showToast(string.state_approved)
             }
 
             Authorizing -> {
@@ -104,7 +105,7 @@ class CheckoutFragment : Fragment() {
             }
 
             Declined -> {
-              showToast(R.string.state_declined)
+              showToast(string.state_declined)
             }
 
             NotStarted -> {
@@ -112,7 +113,7 @@ class CheckoutFragment : Fragment() {
             }
 
             is CashAppPayExceptionState -> {
-              showToast(R.string.state_error)
+              showToast(string.state_error)
               Log.e("Sample", "Exception occurred: ${newState.exception}")
             }
             PollingTransactionStatus -> {
@@ -130,6 +131,11 @@ class CheckoutFragment : Fragment() {
             RetrievingExistingCustomerRequest -> {
               // Use this state to display loading status if desired.
               // Used only when retrieving existing customer request. Corner case (eg.: app killed)
+            }
+
+            Refreshing -> {
+              // TODO: Optional. Use this state to display loading status if desired.
+              binding.payKitButton.isEnabled = false
             }
           }
         }
