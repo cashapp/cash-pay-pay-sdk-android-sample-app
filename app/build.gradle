@@ -55,7 +55,7 @@ dependencies {
   implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
 
   // Cash PayKit Android SDK dependency.
-  implementation 'app.cash.paykit:core:2.2.0'
+  implementation 'app.cash.paykit:core:2.2.1'
 
   testImplementation 'junit:junit:4.13.2'
 
