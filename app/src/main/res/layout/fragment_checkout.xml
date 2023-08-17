@@ -290,8 +290,9 @@
           style="@style/BodyText3"
           />
 
-      <app.cash.paykit.core.ui.CashAppPayLightButton
+      <app.cash.paykit.core.ui.CashAppPayButton
           android:id="@+id/payKitButton"
+          style="@style/CAPButtonStyle.Light"
           android:layout_width="match_parent"
           android:layout_height="52dp"
           android:layout_marginHorizontal="16dp"
