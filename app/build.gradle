@@ -5,12 +5,12 @@ plugins {
 
 android {
   namespace 'app.cash.paykit.sample'
-  compileSdk 33
+  compileSdk 34
 
   defaultConfig {
     applicationId "app.cash.paykit.sample"
     minSdk 26
-    targetSdk 33
+    targetSdk 34
     versionCode 1
     versionName "1.0.0"
 
@@ -22,8 +22,9 @@ android {
 
   buildTypes {
     release {
-      minifyEnabled false
+      minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+      signingConfig signingConfigs.debug
     }
   }
   compileOptions {
@@ -49,13 +50,13 @@ dependencies {
   implementation 'androidx.core:core-ktx:1.10.1'
   implementation 'androidx.appcompat:appcompat:1.6.1'
   implementation 'com.google.android.material:material:1.9.0'
-  implementation 'androidx.fragment:fragment-ktx:1.6.0'
+  implementation 'androidx.fragment:fragment-ktx:1.6.1'
   implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
   implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
   implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
 
   // Cash PayKit Android SDK dependency.
-  implementation 'app.cash.paykit:core:2.2.1'
+  implementation 'app.cash.paykit:core:2.3.2-SNAPSHOT'
 
   testImplementation 'junit:junit:4.13.2'
 
