@@ -37,12 +37,14 @@ enum class Screens {
 }
 
 /* Change these IDs and redirect URI accordingly for your own app. */
-private const val sandboxClientID = "CAS-CI_PAYKIT_ANDROID_DEMO"
-const val sandboxBrandID = "BRAND_9iw6g8mjkh75q5p5eoil6e0jf"
+private const val SANDBOX_CLIENT_ID = "CAS-CI_PAYKIT_ANDROID_DEMO"
+const val SANDBOX_BRAND_ID = "BRAND_9iw6g8mjkh75q5p5eoil6e0jf"
 
-const val redirectURI = "cashpaykitsample://checkout"
+const val REDIRECT_URL = "cashpaykitsample://checkout"
 
-class MainViewModel : ViewModel(), CashAppPayListener {
+class MainViewModel :
+  ViewModel(),
+  CashAppPayListener {
 
   // Used for simple navigation.
   private val _currentScreen = MutableStateFlow(Screens.ADD_TO_CART)
@@ -71,13 +73,13 @@ class MainViewModel : ViewModel(), CashAppPayListener {
   }
 
   fun initializeSDK() {
-    payKitSdk = CashAppPayFactory.createSandbox(sandboxClientID)
+    payKitSdk = CashAppPayFactory.createSandbox(SANDBOX_CLIENT_ID)
     payKitSdk.registerForStateUpdates(this)
   }
 
   fun createOneTimePayment(paymentAction: CashAppPayPaymentAction) {
     viewModelScope.launch(Dispatchers.IO) {
-      payKitSdk.createCustomerRequest(paymentAction, redirectURI)
+      payKitSdk.createCustomerRequest(paymentAction, REDIRECT_URL)
     }
   }
 

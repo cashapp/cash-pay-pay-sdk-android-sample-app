@@ -46,6 +46,7 @@ import app.cash.paykit.sample.R.string
 import app.cash.paykit.sample.databinding.FragmentCheckoutBinding
 import kotlinx.coroutines.launch
 
+@Suppress("ktlint:standard:backing-property-naming")
 class CheckoutFragment : Fragment() {
 
   companion object {
@@ -73,7 +74,7 @@ class CheckoutFragment : Fragment() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     viewModel.initializeSDK()
-    val oneTimePayment = OneTimeAction(USD, 825, sandboxBrandID)
+    val oneTimePayment = OneTimeAction(USD, 825, SANDBOX_BRAND_ID)
     viewModel.createOneTimePayment(oneTimePayment)
   }
 
