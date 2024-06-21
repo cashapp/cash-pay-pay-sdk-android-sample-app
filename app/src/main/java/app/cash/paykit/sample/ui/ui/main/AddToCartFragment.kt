@@ -25,6 +25,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import app.cash.paykit.sample.databinding.FragmentAddToCartBinding
 
+@Suppress("ktlint:standard:backing-property-naming")
 class AddToCartFragment : Fragment() {
 
   private var _binding: FragmentAddToCartBinding? = null
