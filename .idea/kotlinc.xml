@@ -3,6 +3,7 @@
   <component name="KotlinJpsPluginSettings">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="version" value="1.9.20" />
 =======
     <option name="version" value="1.9.0" />
@@ -10,5 +11,8 @@
 =======
     <option name="version" value="2.0.0" />
 >>>>>>> 12c0f40 (Update Sample App dependencies (#15))
+=======
+    <option name="version" value="2.1.0" />
+>>>>>>> 4cc73c6 (More updates as of Jan 2025)
   </component>
 </project>
