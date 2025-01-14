@@ -1,18 +1,18 @@
 plugins {
   id 'com.android.application'
-  id 'org.jetbrains.kotlin.android' version '2.0.0'
+  id 'org.jetbrains.kotlin.android' version '2.1.0'
 }
 
 android {
   namespace 'app.cash.paykit.sample'
-  compileSdk 34
+  compileSdk 35
 
   defaultConfig {
     applicationId "app.cash.paykit.sample"
     minSdk 26
-    targetSdk 34
-    versionCode 1
-    versionName "1.0.0"
+    targetSdk 35
+    versionCode 2
+    versionName "1.0.1"
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     vectorDrawables {
@@ -47,13 +47,13 @@ android {
 dependencies {
 
   // Common Android library dependencies.
-  implementation 'androidx.core:core-ktx:1.13.1'
+  implementation 'androidx.core:core-ktx:1.15.0'
   implementation 'androidx.appcompat:appcompat:1.7.0'
   implementation 'com.google.android.material:material:1.12.0'
-  implementation 'androidx.fragment:fragment-ktx:1.8.1'
-  implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-  implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.3'
-  implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.3'
+  implementation 'androidx.fragment:fragment-ktx:1.8.5'
+  implementation 'androidx.constraintlayout:constraintlayout:2.2.0'
+  implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.8.7'
+  implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7'
 
   // Cash PayKit Android SDK dependency.
   implementation 'app.cash.paykit:core:2.5.0'
