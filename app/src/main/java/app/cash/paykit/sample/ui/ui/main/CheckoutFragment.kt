@@ -81,8 +81,11 @@ class CheckoutFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
     handlePayKitStateChanges()
-    binding.payKitButton.setOnClickListener {
-      viewModel.authorizeCustomerRequest()
+    binding.payKitButton.apply {
+      isEnabled = false
+      setOnClickListener {
+        viewModel.authorizeCustomerRequest()
+      }
     }
   }
 
