@@ -292,7 +292,7 @@
 
       <app.cash.paykit.core.ui.CashAppPayButton
           android:id="@+id/payKitButton"
-          style="@style/CAPButtonStyle.Light"
+          style="@style/CAPButtonStyle.Default"
           android:layout_width="match_parent"
           android:layout_height="52dp"
           android:layout_marginHorizontal="16dp"
