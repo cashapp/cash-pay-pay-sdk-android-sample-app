@@ -1,0 +1,74 @@
+[versions]
+# SDK versions
+compileSdk = "36"
+minSdk = "26"
+targetSdk = "36"
+
+# Plugin versions
+agp = "9.0.0"
+kotlin = "2.3.0"
+spotless = "8.2.1"
+ktlint = "1.8.0"
+
+# AndroidX versions
+core-ktx = "1.17.0"
+lifecycle = "2.10.0"
+activity-compose = "1.12.3"
+
+# Compose
+compose-bom = "2026.01.01"
+
+# Material
+material = "1.13.0"
+
+# Cash App PayKit
+paykit = "2.6.0"
+
+[libraries]
+# Compose BOM
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+
+# Compose UI
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+# AndroidX
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+lifecycle-runtime-compose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "lifecycle" }
+
+# Material
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+# Cash PayKit
+paykit-core = { group = "app.cash.paykit", name = "core", version.ref = "paykit" }
+
+
+[bundles]
+compose = [
+  "compose-ui",
+  "compose-ui-graphics",
+  "compose-ui-tooling-preview",
+  "compose-material3",
+]
+compose-debug = [
+  "compose-ui-tooling",
+  "compose-ui-test-manifest",
+]
+lifecycle = [
+  "lifecycle-viewmodel-ktx",
+  "lifecycle-viewmodel-compose",
+  "lifecycle-runtime-compose",
+]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }

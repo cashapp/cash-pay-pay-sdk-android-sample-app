@@ -9,6 +9,16 @@ All you need to setup and run is to download and open the project with the lates
 
 For written documentation on how to integrate with the SDK please refer to the following : [Android: Getting Started](https://developers.cash.app/docs/api/technical-documentation/sdks/pay-kit/android-getting-started).
 
+## Development Setup
+
+After cloning the repository, install the git hooks to enable automatic copyright year updates:
+
+```bash
+./scripts/install-hooks.sh
+```
+
+This installs a pre-commit hook that automatically updates the copyright year in modified Kotlin files.
+
 ## What to expect
 
 The video below showcases a successful 1-time payment request, where both the Sample App (this project) and the [Sandbox app](https://developers.cash.app/docs/api/technical-documentation/sandbox/sandbox-app) are used.
@@ -20,7 +30,7 @@ https://user-images.githubusercontent.com/416941/216683442-5f8cd216-573f-4a0b-88
 License
 =======
 
-    Copyright 2023 Cash App
+    Copyright 2026 Cash App
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

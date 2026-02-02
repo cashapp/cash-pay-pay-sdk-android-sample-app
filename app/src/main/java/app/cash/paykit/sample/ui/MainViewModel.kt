@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 Cash App
+ * Copyright (C) 2026 Cash App
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  *
  */
 
-package app.cash.paykit.sample.ui.ui.main
+package app.cash.paykit.sample.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -24,7 +24,7 @@ import app.cash.paykit.core.CashAppPayFactory
 import app.cash.paykit.core.CashAppPayListener
 import app.cash.paykit.core.CashAppPayState
 import app.cash.paykit.core.models.sdk.CashAppPayPaymentAction
-import app.cash.paykit.sample.ui.ui.main.Screens.CHECKOUT
+import app.cash.paykit.sample.ui.Screens.CHECKOUT
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
