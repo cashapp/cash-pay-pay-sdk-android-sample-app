@@ -30,6 +30,7 @@ android {
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+    isCoreLibraryDesugaringEnabled = true
   }
 
   buildFeatures {
@@ -60,7 +61,10 @@ dependencies {
   // Common Android library dependencies
   implementation(libs.core.ktx)
   implementation(libs.material)
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
   // Cash App PayKit Android SDK dependency
   implementation(libs.paykit.core)
+  implementation(libs.paykit.ui.views)
+    implementation(libs.paykit.ui.compose)
 }

@@ -54,22 +54,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.cash.paykit.core.CashAppPayState.Approved
-import app.cash.paykit.core.CashAppPayState.Authorizing
 import app.cash.paykit.core.CashAppPayState.CashAppPayExceptionState
 import app.cash.paykit.core.CashAppPayState.Declined
 import app.cash.paykit.core.CashAppPayState.ReadyToAuthorize
-import app.cash.paykit.core.CashAppPayState.Refreshing
 import app.cash.paykit.core.models.sdk.CashAppPayCurrency.USD
 import app.cash.paykit.core.models.sdk.CashAppPayPaymentAction.OneTimeAction
 import app.cash.paykit.sample.R
 import app.cash.paykit.sample.ui.MainViewModel
 import app.cash.paykit.sample.ui.SANDBOX_BRAND_ID
-import app.cash.paykit.sample.ui.components.CashAppPayButtonWrapper
 import app.cash.paykit.sample.ui.theme.AppTextStyles
-import app.cash.paykit.sample.ui.theme.BackgroundGray
 import app.cash.paykit.sample.ui.theme.PayKitSampleTheme
 import app.cash.paykit.sample.ui.theme.TextPrimary
 import app.cash.paykit.sample.ui.theme.TextSectionTitle
+import app.cash.paykit.ui.compose.CashAppPayButton
 
 @Composable
 fun CheckoutScreen(
@@ -78,7 +75,6 @@ fun CheckoutScreen(
 ) {
   val payKitState by viewModel.payKitState.collectAsStateWithLifecycle()
 
-  // Capture string resources during composition to avoid LocalContext issues in LaunchedEffect
   val approvedMessage = stringResource(R.string.state_approved)
   val declinedMessage = stringResource(R.string.state_declined)
   val errorMessage = stringResource(R.string.state_error)
@@ -104,9 +100,7 @@ fun CheckoutScreen(
     }
   }
 
-  val isButtonEnabled = payKitState is ReadyToAuthorize &&
-    payKitState !is Authorizing &&
-    payKitState !is Refreshing
+  val isButtonEnabled = payKitState is ReadyToAuthorize
 
   Column(
     modifier = Modifier
@@ -306,7 +300,7 @@ private fun PaymentSection(
 
       Spacer(modifier = Modifier.height(16.dp))
 
-      CashAppPayButtonWrapper(
+      CashAppPayButton(
         enabled = isButtonEnabled,
         onClick = onPayClick,
       )
