@@ -89,3 +89,5 @@ lint/tmp/
 /.idea/deploymentTargetSelector.xml
 /.idea/other.xml
 .idea/runConfigurations.xml
+/.claude
+.idea/compiler.xml

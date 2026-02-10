@@ -3,16 +3,18 @@ pluginManagement {
     google()
     mavenCentral()
     gradlePluginPortal()
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    maven { url = uri("https://central.sonatype.com/repository/maven-snapshots/") }
   }
 }
+
 dependencyResolutionManagement {
   repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
   repositories {
     google()
     mavenCentral()
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    maven { url = uri("https://central.sonatype.com/repository/maven-snapshots/") }
   }
 }
+
 rootProject.name = "Pay Kit Sample App"
-include ':app'
+include(":app")

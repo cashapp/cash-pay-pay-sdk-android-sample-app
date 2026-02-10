@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Pre-commit hook to update copyright year in modified Kotlin files
+# Updates "Copyright (C) XXXX Cash App" to the current year
+
+CURRENT_YEAR=$(date +%Y)
+
+# Get list of staged Kotlin files
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '\.kt$')
+
+if [ -z "$STAGED_FILES" ]; then
+  exit 0
+fi
+
+for FILE in $STAGED_FILES; do
+  if [ -f "$FILE" ]; then
+    # Check if file has a Cash App copyright header with an outdated year
+    if grep -q "Copyright (C) [0-9]\{4\} Cash App" "$FILE"; then
+      # Update the year if it's not current
+      if ! grep -q "Copyright (C) $CURRENT_YEAR Cash App" "$FILE"; then
+        sed -i '' "s/Copyright (C) [0-9]\{4\} Cash App/Copyright (C) $CURRENT_YEAR Cash App/g" "$FILE"
+        git add "$FILE"
+        echo "Updated copyright year to $CURRENT_YEAR in $FILE"
+      fi
+    fi
+  fi
+done
+
+exit 0
