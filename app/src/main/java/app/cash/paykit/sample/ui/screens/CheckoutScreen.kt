@@ -308,7 +308,7 @@ private fun PaymentSection(
   }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFFF6F6F6)
+@Preview(showBackground = true, backgroundColor = PreviewBackgroundColor)
 @Composable
 private fun OrderSummarySectionPreview() {
   PayKitSampleTheme {
@@ -316,7 +316,7 @@ private fun OrderSummarySectionPreview() {
   }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFFF6F6F6)
+@Preview(showBackground = true, backgroundColor = PreviewBackgroundColor)
 @Composable
 private fun ContactDetailsSectionPreview() {
   PayKitSampleTheme {
@@ -324,7 +324,7 @@ private fun ContactDetailsSectionPreview() {
   }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFFF6F6F6)
+@Preview(showBackground = true, backgroundColor = PreviewBackgroundColor)
 @Composable
 private fun PaymentSectionPreview() {
   PayKitSampleTheme {
@@ -336,7 +336,7 @@ private fun PaymentSectionPreview() {
   }
 }
 
-@Preview(showBackground = true, backgroundColor = 0xFFF6F6F6)
+@Preview(showBackground = true, backgroundColor = PreviewBackgroundColor)
 @Composable
 private fun CheckoutScreenContentPreview() {
   PayKitSampleTheme {
@@ -358,3 +358,5 @@ private fun CheckoutScreenContentPreview() {
     }
   }
 }
+
+private const val PreviewBackgroundColor = 0xFFF6F6F6
