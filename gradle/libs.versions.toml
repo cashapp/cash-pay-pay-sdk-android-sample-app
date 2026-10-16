@@ -25,7 +25,7 @@ compose-bom = "2026.01.01"
 material = "1.13.0"
 
 # Cash App PayKit
-paykit = "3.0.0-SNAPSHOT"
+paykit = "3.2.0"
 
 [libraries]
 # Compose BOM

@@ -23,4 +23,16 @@
   <string name="state_approved">Payment Approved!</string>
   <string name="state_declined">Payment Declined!</string>
   <string name="state_error">Exception occurred! Check logcat.</string>
+
+  <string name="components_title">Components</string>
+  <string name="components_compose_labels">Compose: button labels</string>
+  <string name="components_compose_styles">Compose: button styles</string>
+  <string name="components_compose_payment_method">Compose: payment method</string>
+  <string name="components_views_labels">Views: button labels</string>
+  <string name="components_views_styles">Views: button styles</string>
+  <string name="components_views_payment_method">Views: payment method</string>
+  <string name="components_disabled">Disabled</string>
+  <string name="components_no_style">No style attribute</string>
+  <string name="components_label_in_code">Label set in code</string>
+  <string name="sample_cashtag">$jack</string>
 </resources>
