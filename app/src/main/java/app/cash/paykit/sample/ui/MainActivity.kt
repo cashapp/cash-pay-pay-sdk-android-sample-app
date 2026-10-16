@@ -19,6 +19,7 @@ package app.cash.paykit.sample.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.Image
@@ -31,6 +32,8 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
@@ -39,13 +42,16 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.cash.paykit.sample.R
 import app.cash.paykit.sample.ui.screens.AddToCartScreen
 import app.cash.paykit.sample.ui.screens.CheckoutScreen
+import app.cash.paykit.sample.ui.screens.ComponentsScreen
 import app.cash.paykit.sample.ui.theme.BackgroundGray
 import app.cash.paykit.sample.ui.theme.PayKitSampleTheme
+import app.cash.paykit.sample.ui.theme.TextPrimary
 
 class MainActivity : ComponentActivity() {
 
@@ -60,7 +66,15 @@ class MainActivity : ComponentActivity() {
         val snackbarHostState = remember { SnackbarHostState() }
 
         Scaffold(
-          topBar = { AppTopBar() },
+          topBar = {
+            AppTopBar(
+              onComponentsClick = if (currentScreen == Screens.ADD_TO_CART) {
+                { viewModel.navigateToComponentsScreen() }
+              } else {
+                null
+              },
+            )
+          },
           snackbarHost = { SnackbarHost(snackbarHostState) },
         ) { paddingValues ->
           Box(modifier = Modifier.padding(paddingValues)) {
@@ -73,6 +87,11 @@ class MainActivity : ComponentActivity() {
                 viewModel = viewModel,
                 snackbarHostState = snackbarHostState,
               )
+
+              Screens.COMPONENTS -> {
+                BackHandler { viewModel.navigateToAddToCartScreen() }
+                ComponentsScreen()
+              }
             }
           }
         }
@@ -83,7 +102,7 @@ class MainActivity : ComponentActivity() {
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun AppTopBar() {
+private fun AppTopBar(onComponentsClick: (() -> Unit)?) {
   TopAppBar(
     title = {
       Row(
@@ -99,6 +118,13 @@ private fun AppTopBar() {
           painter = painterResource(R.drawable.gpc_title),
           contentDescription = null,
         )
+      }
+    },
+    actions = {
+      if (onComponentsClick != null) {
+        TextButton(onClick = onComponentsClick) {
+          Text(text = stringResource(R.string.components_title), color = TextPrimary)
+        }
       }
     },
     colors = TopAppBarDefaults.topAppBarColors(

@@ -57,8 +57,8 @@ import app.cash.paykit.core.CashAppPayState.Approved
 import app.cash.paykit.core.CashAppPayState.CashAppPayExceptionState
 import app.cash.paykit.core.CashAppPayState.Declined
 import app.cash.paykit.core.CashAppPayState.ReadyToAuthorize
+import app.cash.paykit.core.models.sdk.CashAppPayAction.OneTimeAction
 import app.cash.paykit.core.models.sdk.CashAppPayCurrency.USD
-import app.cash.paykit.core.models.sdk.CashAppPayPaymentAction.OneTimeAction
 import app.cash.paykit.sample.R
 import app.cash.paykit.sample.ui.MainViewModel
 import app.cash.paykit.sample.ui.SANDBOX_BRAND_ID
@@ -67,6 +67,8 @@ import app.cash.paykit.sample.ui.theme.PayKitSampleTheme
 import app.cash.paykit.sample.ui.theme.TextPrimary
 import app.cash.paykit.sample.ui.theme.TextSectionTitle
 import app.cash.paykit.ui.compose.CashAppPayButton
+import app.cash.paykit.ui.compose.CashAppPayButtonLabel
+import app.cash.paykit.ui.compose.CashAppPaymentMethod
 
 @Composable
 fun CheckoutScreen(
@@ -102,6 +104,11 @@ fun CheckoutScreen(
 
   val isButtonEnabled = payKitState is ReadyToAuthorize
 
+  // Once approved, show the customer's cashtag in place of the button.
+  val approvedCashtag = (payKitState as? Approved)?.let { state ->
+    state.responseData.customerProfile?.cashTag?.toString().orEmpty()
+  }
+
   Column(
     modifier = Modifier
       .fillMaxSize()
@@ -120,6 +127,7 @@ fun CheckoutScreen(
     PaymentSection(
       modifier = Modifier.padding(horizontal = 28.dp),
       isButtonEnabled = isButtonEnabled,
+      approvedCashtag = approvedCashtag,
       onPayClick = { viewModel.authorizeCustomerRequest() },
     )
 
@@ -276,6 +284,7 @@ private fun ContactDetailsSection(modifier: Modifier = Modifier) {
 private fun PaymentSection(
   modifier: Modifier = Modifier,
   isButtonEnabled: Boolean,
+  approvedCashtag: String?,
   onPayClick: () -> Unit,
 ) {
   Surface(
@@ -300,10 +309,15 @@ private fun PaymentSection(
 
       Spacer(modifier = Modifier.height(16.dp))
 
-      CashAppPayButton(
-        enabled = isButtonEnabled,
-        onClick = onPayClick,
-      )
+      if (approvedCashtag != null) {
+        CashAppPaymentMethod(cashtag = approvedCashtag)
+      } else {
+        CashAppPayButton(
+          enabled = isButtonEnabled,
+          onClick = onPayClick,
+          label = CashAppPayButtonLabel.Checkout,
+        )
+      }
     }
   }
 }
@@ -331,6 +345,20 @@ private fun PaymentSectionPreview() {
     PaymentSection(
       modifier = Modifier.padding(horizontal = 28.dp),
       isButtonEnabled = true,
+      approvedCashtag = null,
+      onPayClick = {},
+    )
+  }
+}
+
+@Preview(showBackground = true, backgroundColor = PREVIEW_BACKGROUND_COLOR)
+@Composable
+private fun PaymentSectionApprovedPreview() {
+  PayKitSampleTheme {
+    PaymentSection(
+      modifier = Modifier.padding(horizontal = 28.dp),
+      isButtonEnabled = false,
+      approvedCashtag = "\$jack",
       onPayClick = {},
     )
   }
@@ -352,6 +380,7 @@ private fun CheckoutScreenContentPreview() {
       PaymentSection(
         modifier = Modifier.padding(horizontal = 28.dp),
         isButtonEnabled = true,
+        approvedCashtag = null,
         onPayClick = {},
       )
       Spacer(modifier = Modifier.height(16.dp))

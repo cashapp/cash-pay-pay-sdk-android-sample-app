@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pay Kit View components configured through XML attributes. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+  <TextView
+      style="@style/ComponentsSectionTitle"
+      android:text="@string/components_views_labels" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Default"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      app:cap_label="cash_app" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Default"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp"
+      app:cap_label="pay" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Default"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp"
+      app:cap_label="buy" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Default"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp"
+      app:cap_label="cash_out" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Default"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp"
+      app:cap_label="checkout" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Default"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp"
+      app:cap_label="continue_with" />
+
+  <TextView
+      style="@style/ComponentsCaption"
+      android:text="@string/components_label_in_code" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      android:id="@+id/label_in_code_button"
+      style="@style/CAPButtonStyle.Light"
+      android:layout_width="match_parent"
+      android:layout_height="48dp" />
+
+  <TextView
+      style="@style/ComponentsSectionTitle"
+      android:text="@string/components_views_styles" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Default"
+      android:layout_width="match_parent"
+      android:layout_height="48dp" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Alt"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.MonochromeDark"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.MonochromeLight"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Monochrome"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Light"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Auto"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp" />
+
+  <TextView
+      style="@style/ComponentsCaption"
+      android:text="@string/components_no_style" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      android:layout_width="match_parent"
+      android:layout_height="48dp" />
+
+  <TextView
+      style="@style/ComponentsCaption"
+      android:text="@string/components_disabled" />
+
+  <app.cash.paykit.ui.views.CashAppPayButton
+      android:id="@+id/disabled_button"
+      style="@style/CAPButtonStyle.Default"
+      android:layout_width="match_parent"
+      android:layout_height="48dp" />
+
+  <TextView
+      style="@style/ComponentsSectionTitle"
+      android:text="@string/components_views_payment_method" />
+
+  <app.cash.paykit.ui.views.CashAppPaymentMethod
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:cap_cashtag="@string/sample_cashtag"
+      app:cap_size="large" />
+
+  <app.cash.paykit.ui.views.CashAppPaymentMethod
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      app:cap_cashtag="@string/sample_cashtag"
+      app:cap_size="small" />
+
+  <app.cash.paykit.ui.views.CashAppPaymentMethod
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      app:cap_cashtag="@string/sample_cashtag"
+      app:cap_size="large"
+      app:cap_use_polychrome_asset="true" />
+
+</LinearLayout>

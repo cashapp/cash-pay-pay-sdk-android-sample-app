@@ -81,6 +81,20 @@
     <item name="shapeAppearance">@style/ButtonShape</item>
   </style>
 
+  <style name="ComponentsSectionTitle" parent="TitleText4">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginTop">24dp</item>
+    <item name="android:layout_marginBottom">8dp</item>
+  </style>
+
+  <style name="ComponentsCaption" parent="CaptionText">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginTop">12dp</item>
+    <item name="android:layout_marginBottom">4dp</item>
+  </style>
+
   <style name="ButtonShape" parent="ShapeAppearance.MaterialComponents.LargeComponent">
     <item name="cornerFamily">rounded</item>
     <item name="cornerSize">32dp</item>

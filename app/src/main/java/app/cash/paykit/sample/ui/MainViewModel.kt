@@ -23,8 +23,10 @@ import app.cash.paykit.core.CashAppPay
 import app.cash.paykit.core.CashAppPayFactory
 import app.cash.paykit.core.CashAppPayListener
 import app.cash.paykit.core.CashAppPayState
-import app.cash.paykit.core.models.sdk.CashAppPayPaymentAction
+import app.cash.paykit.core.models.sdk.CashAppPayAction
+import app.cash.paykit.sample.ui.Screens.ADD_TO_CART
 import app.cash.paykit.sample.ui.Screens.CHECKOUT
+import app.cash.paykit.sample.ui.Screens.COMPONENTS
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -34,6 +36,7 @@ import kotlinx.coroutines.launch
 enum class Screens {
   ADD_TO_CART,
   CHECKOUT,
+  COMPONENTS,
 }
 
 /* Change these IDs and redirect URI accordingly for your own app. */
@@ -47,7 +50,7 @@ class MainViewModel :
   CashAppPayListener {
 
   // Used for simple navigation.
-  private val _currentScreen = MutableStateFlow(Screens.ADD_TO_CART)
+  private val _currentScreen = MutableStateFlow(ADD_TO_CART)
   val currentScreen: StateFlow<Screens> = _currentScreen
 
   // Cash PayKit State.
@@ -72,14 +75,22 @@ class MainViewModel :
     _currentScreen.value = CHECKOUT
   }
 
+  fun navigateToComponentsScreen() {
+    _currentScreen.value = COMPONENTS
+  }
+
+  fun navigateToAddToCartScreen() {
+    _currentScreen.value = ADD_TO_CART
+  }
+
   fun initializeSDK() {
     payKitSdk = CashAppPayFactory.createSandbox(SANDBOX_CLIENT_ID)
     payKitSdk.registerForStateUpdates(this)
   }
 
-  fun createOneTimePayment(paymentAction: CashAppPayPaymentAction) {
+  fun createOneTimePayment(action: CashAppPayAction) {
     viewModelScope.launch(Dispatchers.IO) {
-      payKitSdk.createCustomerRequest(paymentAction, REDIRECT_URL)
+      payKitSdk.createCustomerRequest(action, REDIRECT_URL)
     }
   }
 
