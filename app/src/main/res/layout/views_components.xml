@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Pay Kit View components configured through XML attributes. -->
+<!-- Pay Kit View components configured through XML attributes. Style captions are API names, not copy. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
 
   <TextView
       style="@style/ComponentsSectionTitle"
@@ -65,46 +67,68 @@
       style="@style/ComponentsSectionTitle"
       android:text="@string/components_views_styles" />
 
+  <TextView
+      style="@style/ComponentsCaption"
+      android:text="Default" />
+
   <app.cash.paykit.ui.views.CashAppPayButton
       style="@style/CAPButtonStyle.Default"
       android:layout_width="match_parent"
       android:layout_height="48dp" />
 
+  <TextView
+      style="@style/ComponentsCaption"
+      android:text="Alt" />
+
   <app.cash.paykit.ui.views.CashAppPayButton
       style="@style/CAPButtonStyle.Alt"
       android:layout_width="match_parent"
-      android:layout_height="48dp"
-      android:layout_marginTop="8dp" />
+      android:layout_height="48dp" />
+
+  <TextView
+      style="@style/ComponentsCaption"
+      android:text="MonochromeDark" />
 
   <app.cash.paykit.ui.views.CashAppPayButton
       style="@style/CAPButtonStyle.MonochromeDark"
       android:layout_width="match_parent"
-      android:layout_height="48dp"
-      android:layout_marginTop="8dp" />
+      android:layout_height="48dp" />
+
+  <TextView
+      style="@style/ComponentsCaption"
+      android:text="MonochromeLight" />
 
   <app.cash.paykit.ui.views.CashAppPayButton
       style="@style/CAPButtonStyle.MonochromeLight"
       android:layout_width="match_parent"
-      android:layout_height="48dp"
-      android:layout_marginTop="8dp" />
+      android:layout_height="48dp" />
+
+  <TextView
+      style="@style/ComponentsCaption"
+      android:text="Monochrome" />
 
   <app.cash.paykit.ui.views.CashAppPayButton
       style="@style/CAPButtonStyle.Monochrome"
       android:layout_width="match_parent"
-      android:layout_height="48dp"
-      android:layout_marginTop="8dp" />
+      android:layout_height="48dp" />
+
+  <TextView
+      style="@style/ComponentsCaption"
+      android:text="Light" />
 
   <app.cash.paykit.ui.views.CashAppPayButton
       style="@style/CAPButtonStyle.Light"
       android:layout_width="match_parent"
-      android:layout_height="48dp"
-      android:layout_marginTop="8dp" />
+      android:layout_height="48dp" />
+
+  <TextView
+      style="@style/ComponentsCaption"
+      android:text="Auto" />
 
   <app.cash.paykit.ui.views.CashAppPayButton
       style="@style/CAPButtonStyle.Auto"
       android:layout_width="match_parent"
-      android:layout_height="48dp"
-      android:layout_marginTop="8dp" />
+      android:layout_height="48dp" />
 
   <TextView
       style="@style/ComponentsCaption"
