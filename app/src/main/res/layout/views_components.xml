@@ -53,6 +53,13 @@
       android:layout_marginTop="8dp"
       app:cap_label="continue_with" />
 
+  <app.cash.paykit.ui.views.CashAppPayButton
+      style="@style/CAPButtonStyle.Default"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_marginTop="8dp"
+      app:cap_label="cash_app_pay" />
+
   <TextView
       style="@style/ComponentsCaption"
       android:text="@string/components_label_in_code" />
